@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Instruction";
+}
+
+<h2>Instruction</h2>
+
+<p > 
+This application allows you to monitor changes in the prices of goods on sites. At the moment, the 
+<a href="https://rozetka.com.ua">Rozetka store</a> is implemented, but there is an opportunity to 
+add parsers for other stores (there is no possibility to choose a store now Rozetka by default). 
+While parsing the site pages, a nuance arises, part of the path https://rozetka.com.ua/notebooks
+<span class="bg-primary">/c80004/</span> is not permanent. The application has several pages 
+(Home, Instruction, View products, Launch verification of changes). When starting changes, you 
+can select a page range (take the products placed on Rozetka sorted by default). The category 
+update request is processed by the API. The database is stored locally (created when you first 
+    start), for ease of demonstration. It is  recommended to run only a few pages for updates.
+The file Analizer => GlobalShopAnalizerInitiator indicates the directory for storing photos 
+(imagePath). To upload selected product photos with a minimum extension.
+</p>

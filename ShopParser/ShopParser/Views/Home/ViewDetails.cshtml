@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "ViewDetails";
+}
+
+<h2>ViewDetails</h2>
+
+@using (Ajax.BeginForm("GetResultPage", new AjaxOptions { UpdateTargetId = "results" }))
+{
+    <input type="text" name="shop" value="@ViewBag.ShopName" readonly />
+    <input type="text" name="category" value="@ViewBag.Category" readonly />
+    <input type="number" name="page" min="1" max="@ViewBag.Pages" />
+    <input type="submit" value="Search" />
+}
+<div id="results"></div>
+
+
+

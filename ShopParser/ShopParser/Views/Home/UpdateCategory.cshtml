@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "UpdateCategory";
+}
+
+<h2>UpdateCategory</h2>
+
+
+<table>
+    <tr><td>Shop name </td><td><input type="text" id="shop" value="@ViewBag.ShopName" /></td></tr>
+    <tr><td>Category name </td><td><input type="text" id="category" value="@ViewBag.Category" /></td></tr>
+    <tr><td>Start page </td><td><input type="number" id="start" /></td></tr>
+    <tr><td>End Page </td><td><input type="number" id="end" /></td></tr>
+</table>
+<button id="editBook">Start</button>
+<div id="result"></div>
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+            $("#editBook").click(function (event) {
+                event.preventDefault();
+                Validate($("#shop").val(), $("#category").val(), $("#start").val(), $("#end").val());
+            });
+
+
+
+        });
+
+        function Validate(shop, category, start, end) {
+            $.ajax({
+                url: '/api/values/GetValidation/' + shop + '/' + category + '/' + start + '/' + end,
+                type: 'Get',
+                contentType: "application/json;charset=utf-8",
+                success: function (data) {
+                    $("#result").text(data)
+                }
+            });
+        }
+    </script>
+}

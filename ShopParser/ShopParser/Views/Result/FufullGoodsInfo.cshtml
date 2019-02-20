@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "FufullGoodsInfo";
+}
+
+<h2>FufullGoodsInfo</h2>
+<h2>@ViewBag.Goods.ProductName</h2>
+<div class="row">
+    <div class="col-md-4">
+        <img src="@ViewBag.Goods.ImagePath">
+    </div>
+    <div class="col-md-8">
+        @Html.Raw(WebUtility.HtmlDecode(@ViewBag.GoodsDescription))
+        
+    </div>
+    <div class="col-md-12">
+        <h2>ChangeDynamics</h2>
+        <table>
+            <tr><th>OldPrice</th> <th>NewPrice</th> <th>UpdateTime</th></tr>
+        
+        @foreach (var item in ViewBag.ChangeDynamics)
+        {
+            <tr>  <td> @item.OldPrice     </td><td> @item.NewPrice     </td><td> @item.UpdateTime   </td></tr>
+        }
+        </table>
+    </div>
+</div>

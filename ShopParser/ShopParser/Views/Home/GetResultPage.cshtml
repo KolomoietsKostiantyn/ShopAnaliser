@@ -1,0 +1,27 @@
+﻿<table class="table">
+    <tbody>
+    <th>
+        Picture
+    </th>
+    <th>
+        Name
+    </th>
+    <th>
+        Instruction and dynamics of changes
+    </th>
+    @foreach (var b in ViewBag.Goods)
+    {
+        <tr>
+
+            <td><img src="@b.ImagePath"></td>
+            <td> @Html.Raw(WebUtility.HtmlDecode(@b.ProductName))  Price: @b.Price </td>
+            <td>
+                <p>
+                    @Html.ActionLink("More details", "FufullGoodsInfo", "Result", new { shop = @ViewBag.ShopName, category = @b.IdOnSite}, null)      
+                </p>
+            </td>
+
+        </tr>
+    }
+    </tbody>
+</table>

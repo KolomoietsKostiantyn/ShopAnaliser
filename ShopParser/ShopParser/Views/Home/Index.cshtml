@@ -1,0 +1,22 @@
+﻿
+        <table class="table">
+            <tbody>
+            <th>
+                Nane
+            </th>
+            <th>
+                See more details
+            </th>
+            <th>
+                Update category
+            </th>
+            @foreach (var b in ViewBag.Category)
+            {
+                <tr>
+                    <td>@b.Name</td>
+                    <td><p><a href="Home/ViewDetails/@ViewBag.ShopName/@b.Name">Items</a></p></td>
+                    <td><p><a href="Home/UpdateCategory/@ViewBag.ShopName/@b.Name">Update</a></p></td>
+                </tr>
+            }
+            </tbody>
+        </table>
